@@ -6,8 +6,8 @@ type User {
   updated_at: String
 }
 
-type Query {
-  me: User
+type Query @group(middleware: ["api:auth"]) {
+  viewer: User
 }
 
 type Mutation {
