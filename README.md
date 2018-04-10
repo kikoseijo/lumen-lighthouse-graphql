@@ -49,6 +49,17 @@ if (!function_exists('app_path')) {
 }
 ```
 
+Add klaravel:
+
+```
+composer require ksoft/klaravel
+cp vendor/ksoft/klaravel/stubs/config/ksoft.php config/ksoft.php
+```
+
+```php
+$app->configure('ksoft');
+```
+
 ---
 
 ## Credits

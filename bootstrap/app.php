@@ -29,6 +29,7 @@ $app->withEloquent();
 
 
 $app->configure('lighthouse');
+$app->configure('ksoft');
 
 /*
 |--------------------------------------------------------------------------
@@ -97,6 +98,7 @@ if (!function_exists('app_path')) {
 $app->register(App\Providers\AuthServiceProvider::class);
 // $app->register(App\Providers\EventServiceProvider::class);
 $app->register(Nuwave\Lighthouse\Providers\LighthouseServiceProvider::class);
+$app->register(Ksoft\Klaravel\ServiceProvider::class);
 /*
 |--------------------------------------------------------------------------
 | Load The Application Routes
