@@ -4,18 +4,12 @@ type User {
   email: String
   created_at: DateTime
   updated_at: DateTime
-  # avisos: [Aviso!]! @hasMany
+  # tasks: [Task!]! @hasMany
 }
 
 type LoginPayload {
   user: User!
   token: String!
-}
-
-type ResponsesPayload {
-  success: Boolean!
-  msg: String
-  payload: String
 }
 
 extend type Mutation {
