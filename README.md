@@ -1,4 +1,4 @@
-### Lumen + GraphQL - by Lighthouse
+### Lumen + GraphQL - <small>by Lighthouse</small>
 
 This is an example project to show how to implement [nuwave/lighthouse](https://github.com/nuwave/lighthouse) on a Lumen (Laravel) project.
 
@@ -29,27 +29,7 @@ $app->configure('lighthouse');
 $app->register(Nuwave\Lighthouse\Providers\LighthouseServiceProvider::class);
 ```
 
-Lumen its so minimized, some helpers methods are required:
-
-```php
-if (!function_exists('config_path')) {
-    function config_path($path = '')
-    {
-        return app()->basePath() . '/config' . ($path ? '/' . $path : $path);
-    }
-}
-```
-
-```php
-if (!function_exists('app_path')) {
-    function app_path($path = '')
-    {
-        return app()->basePath() . '/app' . ($path ? '/' . $path : $path);
-    }
-}
-```
-
-Add klaravel:
+Add klaravel (Optional)
 
 ```
 composer require ksoft/klaravel
@@ -60,7 +40,11 @@ cp vendor/ksoft/klaravel/stubs/config/ksoft.php config/ksoft.php
 $app->configure('ksoft');
 ```
 
-### Install Laravel Passport
+### Laravel Passport
+
+Im using a wrapper to be able to have Passport fully integrated on Laravel Lumen´s. For more info or extended usage
+
+[https://github.com/dusterio/lumen-passport](https://github.com/dusterio/lumen-passport)
 
 ```
 composer require dusterio/lumen-passport
@@ -68,8 +52,6 @@ composer require appzcoder/lumen-routes-list
 ```
 
 ```php
-<?php
-
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
