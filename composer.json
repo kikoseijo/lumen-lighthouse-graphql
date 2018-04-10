@@ -7,6 +7,7 @@
     "require": {
         "php": ">=7.1.3",
         "laravel/lumen-framework": "5.6.*",
+        "nuwave/lighthouse": "^2.0",
         "vlucas/phpdotenv": "~2.2"
     },
     "require-dev": {
