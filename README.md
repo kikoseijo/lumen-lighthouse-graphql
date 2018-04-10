@@ -19,7 +19,7 @@ mkdir config && mkdir app/Models && mkdir app/GraphQL && mkdir app/GraphQL/Mutat
 cp vendor/nuwave/lighthouse/config/config.php config/lighthouse.php
 ```
 
-Helping Lumen knowledge regarding Lighthouse:
+Helping Lumen acknowledge regarding Lighthouse:
 
 ```php
 $app->withFacades();
