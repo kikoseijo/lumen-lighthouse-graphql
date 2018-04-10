@@ -1,18 +1,6 @@
+#import ./Schemas/auth.graphql
+
 scalar DateTime @scalar(class: "DateTime")
-
-type User {
-  id: ID!
-  name: String!
-  email: String!
-  token: String
-  created_at: DateTime
-  updated_at: DateTime
-}
-
-type LoginPayload {
-  user: User
-  token: String!
-}
 
 type Query @group(middleware: ["auth"]) {
   viewer: User
