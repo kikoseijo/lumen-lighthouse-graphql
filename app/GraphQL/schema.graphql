@@ -1,10 +1,12 @@
+scalar DateTime @scalar(class: "DateTime")
+
 type User {
   id: ID!
   name: String!
   email: String!
   token: String
-  created_at: String!
-  updated_at: String
+  created_at: DateTime
+  updated_at: DateTime
 }
 
 type LoginPayload {
