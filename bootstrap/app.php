@@ -23,9 +23,12 @@ $app = new Laravel\Lumen\Application(
     realpath(__DIR__.'/../')
 );
 
-// $app->withFacades();
+$app->withFacades();
+$app->withEloquent();
 
-// $app->withEloquent();
+
+
+$app->configure('lighthouse');
 
 /*
 |--------------------------------------------------------------------------
@@ -67,6 +70,13 @@ $app->singleton(
 //     'auth' => App\Http\Middleware\Authenticate::class,
 // ]);
 
+if (!function_exists('config_path')) {
+    function config_path($path = '')
+    {
+        return app()->basePath() . '/config' . ($path ? '/' . $path : $path);
+    }
+}
+
 /*
 |--------------------------------------------------------------------------
 | Register Service Providers
@@ -81,7 +91,7 @@ $app->singleton(
 // $app->register(App\Providers\AppServiceProvider::class);
 // $app->register(App\Providers\AuthServiceProvider::class);
 // $app->register(App\Providers\EventServiceProvider::class);
-
+$app->register(Nuwave\Lighthouse\Providers\LighthouseServiceProvider::class);
 /*
 |--------------------------------------------------------------------------
 | Load The Application Routes
