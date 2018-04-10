@@ -25,6 +25,13 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
         'name', 'email',
     ];
 
+    public function getPhotoUrlAttribute($value)
+    {
+        return empty($value)
+            ? 'https://www.gravatar.com/avatar/'.md5(strtolower($this->email)).'.jpg?s=200&d=mm'
+            : url($value);
+    }
+
     /**
      * The attributes excluded from the model's JSON form.
      *

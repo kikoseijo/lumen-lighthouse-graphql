@@ -2,6 +2,7 @@ type User {
   id: ID! @globalId
   name: String
   email: String
+  photo_url: String
   created_at: DateTime
   updated_at: DateTime
   # tasks: [Task!]! @hasMany
