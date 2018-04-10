@@ -66,9 +66,9 @@ $app->singleton(
 //    App\Http\Middleware\ExampleMiddleware::class
 // ]);
 
-// $app->routeMiddleware([
-//     'auth' => App\Http\Middleware\Authenticate::class,
-// ]);
+$app->routeMiddleware([
+    'auth' => App\Http\Middleware\Authenticate::class,
+]);
 
 if (!function_exists('config_path')) {
     function config_path($path = '')
@@ -76,7 +76,12 @@ if (!function_exists('config_path')) {
         return app()->basePath() . '/config' . ($path ? '/' . $path : $path);
     }
 }
-
+if (!function_exists('app_path')) {
+    function app_path($path = '')
+    {
+        return app()->basePath() . '/app' . ($path ? '/' . $path : $path);
+    }
+}
 /*
 |--------------------------------------------------------------------------
 | Register Service Providers
@@ -89,7 +94,7 @@ if (!function_exists('config_path')) {
 */
 
 // $app->register(App\Providers\AppServiceProvider::class);
-// $app->register(App\Providers\AuthServiceProvider::class);
+$app->register(App\Providers\AuthServiceProvider::class);
 // $app->register(App\Providers\EventServiceProvider::class);
 $app->register(Nuwave\Lighthouse\Providers\LighthouseServiceProvider::class);
 /*
