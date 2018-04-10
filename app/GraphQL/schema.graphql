@@ -2,14 +2,20 @@ type User {
   id: ID!
   name: String!
   email: String!
+  token: String
   created_at: String!
   updated_at: String
 }
 
-type Query @group(middleware: ["api:auth"]) {
+type LoginPayload {
+  user: User
+  token: String!
+}
+
+type Query @group(middleware: ["auth"]) {
   viewer: User
 }
 
 type Mutation {
-  login(username: String!, password: String!): User
+  login(username: String!, password: String!): LoginPayload
 }

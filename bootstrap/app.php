@@ -26,10 +26,10 @@ $app = new Laravel\Lumen\Application(
 $app->withFacades();
 $app->withEloquent();
 
-
-
 $app->configure('lighthouse');
 $app->configure('ksoft');
+$app->configure('auth');
+$app->configure('status_codes');
 
 /*
 |--------------------------------------------------------------------------
@@ -94,11 +94,25 @@ if (!function_exists('app_path')) {
 |
 */
 
-// $app->register(App\Providers\AppServiceProvider::class);
 $app->register(App\Providers\AuthServiceProvider::class);
 // $app->register(App\Providers\EventServiceProvider::class);
-$app->register(Nuwave\Lighthouse\Providers\LighthouseServiceProvider::class);
+$app->register(Laravel\Passport\PassportServiceProvider::class);
+$app->register(Dusterio\LumenPassport\PassportServiceProvider::class);
 $app->register(Ksoft\Klaravel\ServiceProvider::class);
+$app->register(\App\Providers\AppServiceProvider::class);
+$app->register(Nuwave\Lighthouse\Providers\LighthouseServiceProvider::class);
+// $app->register(\Nord\Lumen\Cors\CorsServiceProvider::class);
+
+if ($app->environment() != 'testing') {
+    // $app->configure('gateway');
+}
+
+if ($app->environment() == 'local') {
+    $app->register(Appzcoder\LumenRoutesList\RoutesCommandServiceProvider::class);
+}
+
+
+
 /*
 |--------------------------------------------------------------------------
 | Load The Application Routes
