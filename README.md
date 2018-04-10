@@ -185,12 +185,47 @@ Should return:
         "name": "Kiko Seijo",
         "email": "kiko@example.com"
       },
-      "token":
-        "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImJhMjAzMGU4MjJhYTQwYzdmZjc0MDc1NWY2MmM3ZDZjYWQ3MGM2MmI2ZGFlMWQ4NmE5MGNiNWE4MjlkZjhlYTJhM2VjMjFhOTA1ZTQ5ODE0In0.eyJhdWQiOiIxIiwianRpIjoiYmEyMDMwZTgyMmFhNDBjN2ZmNzQwNzU1ZjYyYzdkNmNhZDcwYzYyYjZkYWUxZDg2YTkwY2I1YTgyOWRmOGVhMmEzZWMyMWE5MDVlNDk4MTQiLCJpYXQiOjE1MjMzOTMyNzgsIm5iZiI6MTUyMzM5MzI3OCwiZXhwIjoxNTU0OTI5Mjc4LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.shX7BEKCi7tA0qxeu6K8kG_Bqy3G9F9QZfZifIk-GYB0M_dYY_cA5ov_F7NLfEUyaJoN_PQcXorHf6fbEs-XucA7yOI6Mvyx12CVdYSUnfZ1qgLr0XMsCUOi_7rSchxjcyUcxjrklt0lPmNZuj866mggSKUoFoWHIqFPc4TI0PK4jlZEKlWCtwDWif302XDGB124mGkLuaQxmWEwd-VZqvgrljwHQkeRaIRLNVHnBtc-quPxqBAwnECNZgGBIC662vpeu_rNTTMqZx8UGhzgLzOwuHun9NSEl_GjcIte36jPhk0dzf54l4ti_Y5Cj5yE3bc2FtvoUyWsRd_Z1E3VaIk7Gz9d1lZKbPnCYS3ree-AyzBotOSe28fempvFldOkYMkxnpsBwlkxJ_bMu5JVRXlDFzrRm5hIdlNSw3cZ7AardvSyddvLEsHKcelOf0PFK6kA04xXWXbKPMPEETQHNR2yVRtGMwK2XkBFtOuflPQWOVoO_APIwNW55Z7R6pLZxX2-UDqcTdQl-hM19feiwEzy-HZQSsNDm-BMA85y-1PJXei54hmcEztz8uR4c37JUKAN6B_0iZ2w42pasSjKbglTwJSLW_7awUhgdnMhXPIFpv5T9QWwKxpUbyT0vrSMwMF_RH8tDWY5KX9bzsdFa-n5TW_WiB4xxw0KxZcYZYU"
+      "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJS........your token"
     }
   }
 }
 ```
+
+Testing auth middleware from Viewer Query:
+
+```graphql
+query ViewerQuery {
+  viewer {
+    id
+    name
+    email
+  }
+}
+```
+
+Add the headers to your query and adjust the token to the one you are getting from previous login:
+
+```json
+{
+  "Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJS........your token"
+}
+```
+
+And you should get:
+
+```json
+{
+  "data": {
+    "viewer": {
+      "id": "1",
+      "name": "Kiko Seijo",
+      "email": "kiko@example.com"
+    }
+  }
+}
+```
+
+![GraphQL viewer Query with a Laravel Passport bearer token using Lighthouse auth middleware](/public/imgs/viewer-bearer-token-middleware-auth.png?raw=true 'GraphQL viewer Query with a Laravel Passport bearer token using Lighthouse auth middleware')
 
 ---
 

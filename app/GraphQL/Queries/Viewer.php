@@ -15,7 +15,6 @@ class Viewer extends GraphQLResolver
             throw new AuthorizationException('Unauthorized');
             return null;
         }
-
-        return $this->context; // User::find($context->id);
+        return $this->context->user; // User::find($context->id);
     }
 }
