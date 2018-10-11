@@ -1,20 +1,18 @@
 {
   "name": "laravel/lumen",
   "description": "The Laravel Lumen Framework.",
-  "keywords": ["framework", "laravel", "lumen"],
+  "keywords": [
+    "framework",
+    "laravel",
+    "lumen"
+  ],
   "license": "MIT",
   "type": "project",
-  "repositories": [
-    {
-      "type": "path",
-      "url": "/Users/smac/Developer/Laravel/Laravel-Plugins/*/"
-    }
-  ],
   "require": {
     "php": ">=7.1.3",
     "appzcoder/lumen-routes-list": "^1.0",
     "dusterio/lumen-passport": "^0.2.6",
-    "ksoft/klaravel": "dev-master",
+    "ksoft/klaravel": "^3.0",
     "laravel/lumen-framework": "5.6.*",
     "laravel/passport": "^6.0",
     "nuwave/lighthouse": "dev-master",
@@ -31,7 +29,10 @@
     }
   },
   "autoload-dev": {
-    "classmap": ["tests/", "database/"]
+    "classmap": [
+      "tests/",
+      "database/"
+    ]
   },
   "scripts": {
     "post-root-package-install": [
